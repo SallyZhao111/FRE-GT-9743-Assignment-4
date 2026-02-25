@@ -47,7 +47,7 @@ class ProductBulletCashflow(Product):
     ) -> None:
 
         super().__init__()
-        self.first_date_ = self.last_date_ = termination_date
+        self.first_date_ = self.last_date_ = termination_date # bullet cashflow start and end at the same date
         self.long_or_short_ = long_or_short
         self.notional_ = notional
         self.currency_ = currency
@@ -59,7 +59,7 @@ class ProductBulletCashflow(Product):
 
     @property
     def payment_date(self) -> Date:
-        return self.paymnet_date_
+        return self.paymnet_date_     #payment date maybe not be last date
 
     def accept(self, visitor: ProductVisitor):
         return visitor.visit(self)
